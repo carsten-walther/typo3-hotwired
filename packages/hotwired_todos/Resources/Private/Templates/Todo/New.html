@@ -1,0 +1,23 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:hotwired="http://typo3.org/ns/Walther/Hotwired/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:layout name="Default"/>
+
+<f:section name="Main">
+
+    <h2>New todo</h2>
+
+    <f:flashMessages />
+
+    <hotwired:turboFrame id="new-todo">
+        <f:render partial="FormErrors"/>
+        <f:form action="create" name="todo" object="{todo}" arguments="{todolist: todolist}" pageType="1234612346">
+            <f:render partial="Todo/FormFields" />
+            <f:form.submit value="create todo" />
+        </f:form>
+    </hotwired:turboFrame>
+
+</f:section>
+
+</html>

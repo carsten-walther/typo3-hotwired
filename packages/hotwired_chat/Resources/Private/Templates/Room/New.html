@@ -1,0 +1,21 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Default"/>
+
+<f:section name="Main">
+
+    <h2>Create Room</h2>
+
+    <f:render partial="FormErrors"/>
+
+    <f:form action="create" name="room" object="{room}" method="POST">
+        <label for="name">Name <span class="required">*</span></label>
+        <f:form.textfield id="name" property="name" autofocus="autofocus"/>
+        <f:form.submit value="create room"/>
+    </f:form>
+
+    <p><f:link.action action="list">Back to list</f:link.action></p>
+
+</f:section>
+
+</html>

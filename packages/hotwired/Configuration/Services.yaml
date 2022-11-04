@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Walther\Hotwired\:
+    resource: '../Classes/*'
+
+  Walther\Hotwired\Command\ServerCommand:
+    tags:
+      - name: console.command
+        command: 'hotwired:server:run'
+        description: 'Runs the websocket server'

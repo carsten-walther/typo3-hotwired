@@ -1,0 +1,56 @@
+page.includeJSLibs {
+    hotwiredTurbo = EXT:hotwired/Resources/Public/Libraries/turbo.js
+    hotwiredTurbo.type = module
+}
+
+eventStream = PAGE
+eventStream {
+    typeNum = 1234512345
+
+    config {
+        disableAllHeaderCode = 1
+        additionalHeaders {
+            10.header = Content-type: text/event-stream
+            20.header = Cache-control: no-cache
+        }
+        xhtml_cleaning = 0
+        admPanel = 0
+        debug = 0
+        no_cache = 1
+    }
+
+    100 = CONTENT
+    100 {
+        table = tt_content
+        select {
+            orderBy = sorting
+            where = {#colPos}=0
+        }
+    }
+}
+
+turboStream = PAGE
+turboStream {
+    typeNum = 1234612346
+
+    config {
+        disableAllHeaderCode = 1
+        additionalHeaders {
+            10.header = Content-type: text/vnd.turbo-stream.html
+            20.header = Cache-control: no-cache
+        }
+        xhtml_cleaning = 0
+        admPanel = 0
+        debug = 0
+        no_cache = 1
+    }
+
+    100 = CONTENT
+    100 {
+        table = tt_content
+        select {
+            orderBy = sorting
+            where = {#colPos}=0
+        }
+    }
+}

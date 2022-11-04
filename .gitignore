@@ -1,0 +1,77 @@
+################################################################################
+# Windows files
+################################################################################
+
+# thumbnail cache files
+[Tt]humbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# folder config file
+[Dd]esktop.ini
+
+# shortcuts
+*.lnk
+
+# recycle bin used on file shares
+$RECYCLE.BIN/
+
+################################################################################
+# MacOS files
+################################################################################
+
+# thumbnails
+._*
+
+# general file and folder cache
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# localization
+.localized
+
+################################################################################
+# JetBrains
+################################################################################
+
+# user-specific stuff
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# generated files
+.idea/**/contentModel.xml
+
+# sensitive or high-churn files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+
+# gradle
+.idea/**/gradle.xml
+.idea/**/libraries
+
+################################################################################
+# GIT
+################################################################################
+
+.*
+!.git*
+
+################################################################################
+# Project
+################################################################################
+
+/public/
+/var/
+/vendor
+/composer.lock
+
+!/var/sqlite/*.sqlite

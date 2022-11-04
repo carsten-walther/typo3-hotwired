@@ -1,0 +1,11 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:hotwired="http://typo3.org/ns/Walther/Hotwired/ViewHelpers"
+      data-namespace-typo3-fluid="true"><f:spaceless>
+
+<hotwired:turboStream action="append" target="todos">
+    <template>
+        <f:render partial="Todo/Properties" arguments="{todo: todo}"/>
+    </template>
+</hotwired:turboStream>
+
+</f:spaceless></html>

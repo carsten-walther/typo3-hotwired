@@ -1,0 +1,14 @@
+plugin.tx_hotwiredtodos_todos {
+    view {
+        # cat=plugin.tx_hotwiredtodos_todos/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:hotwired_todos/Resources/Private/Templates/
+        # cat=plugin.tx_hotwiredtodos_todos/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:hotwired_todos/Resources/Private/Partials/
+        # cat=plugin.tx_hotwiredtodos_todos/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:hotwired_todos/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_hotwiredtodos_todos//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}

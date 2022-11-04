@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:hotwired_todos/Resources/Private/Language/locallang_db.xlf" date="2022-09-20T11:01:46Z" product-name="hotwired_todos">
+		<header/>
+		<body>
+			<trans-unit id="tx_hotwiredtodos_domain_model_todo" resname="tx_hotwiredtodos_domain_model_todo">
+				<source>Todo</source>
+			</trans-unit>
+			<trans-unit id="tx_hotwiredtodos_domain_model_todo.text" resname="tx_hotwiredtodos_domain_model_todo.text">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="tx_hotwiredtodos_domain_model_todolist" resname="tx_hotwiredtodos_domain_model_todolist">
+				<source>Todolist</source>
+			</trans-unit>
+			<trans-unit id="tx_hotwiredtodos_domain_model_todolist.name" resname="tx_hotwiredtodos_domain_model_todolist.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_hotwiredtodos_domain_model_todolist.todos" resname="tx_hotwiredtodos_domain_model_todolist.todos">
+				<source>Todos</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

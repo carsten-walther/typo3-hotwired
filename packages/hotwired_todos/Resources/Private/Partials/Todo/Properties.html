@@ -1,0 +1,12 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<div id="todo-{todo.uid}">
+    <p>
+        <strong>{todo.text}</strong>
+        <f:link.action action="edit" controller="Todo" arguments="{todolist: todolist, todo: todo}">Edit</f:link.action>
+        <f:link.action action="delete" controller="Todo" arguments="{todolist: todolist, todo: todo}">Delete</f:link.action>
+    </p>
+</div>
+
+</html>

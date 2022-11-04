@@ -1,0 +1,33 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:layout name="Default"/>
+
+<f:section name="Main">
+
+    <h2>Todo lists</h2>
+
+    <f:flashMessages/>
+
+    <f:if condition="{todolists}">
+        <f:then>
+
+            <div id="todolist">
+                <f:for each="{todolists}" as="todolist">
+                    <f:render partial="Todolist/Properties" arguments="{todolist: todolist}"/>
+                </f:for>
+            </div>
+
+        </f:then>
+        <f:else>
+
+            <p>...</p>
+
+        </f:else>
+    </f:if>
+
+    <p><f:link.action action="new">New todo list</f:link.action></p>
+
+</f:section>
+
+</html>

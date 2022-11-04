@@ -1,0 +1,20 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:if condition="{messages}">
+    <f:then>
+
+        <div id="messages">
+            <f:for as="message" each="{messages}">
+                <f:render partial="Message/Item" arguments="{message: message}"/>
+            </f:for>
+        </div>
+
+    </f:then>
+    <f:else>
+
+        <p>No chat messages available.</p>
+
+    </f:else>
+</f:if>
+
+</html>

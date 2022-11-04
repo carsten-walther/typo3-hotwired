@@ -1,0 +1,21 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:chat="http://typo3.org/ns/Walther/Chat/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Default"/>
+
+<f:section name="Main">
+
+    <h2>Create Message</h2>
+
+    <f:render partial="FormErrors"/>
+
+    <chat:turboFrame id="new_message">
+        <f:form action="create" controller="Message" name="message" object="{message}" method="POST" arguments="{room: room}" additionalAttributes="{'data-controller': 'reset_form', 'data-action': 'turbo:submit-end->reset_form#reset'}">
+            <label for="text">Text <span class="required">*</span></label>
+            <f:form.textfield id="text" property="text" autofocus="autofocus"/>
+            <f:form.submit value="create message"/>
+        </f:form>
+    </chat:turboFrame>
+
+</f:section>
+
+</html>

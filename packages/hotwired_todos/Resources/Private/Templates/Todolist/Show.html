@@ -1,0 +1,48 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:hotwired="http://typo3.org/ns/Walther/Hotwired/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+    <f:layout name="Default"/>
+
+    <f:section name="Main">
+
+        <h2>Todo list</h2>
+
+        <f:flashMessages />
+
+        <f:comment>
+        <!--
+        <hotwired:turboStreamSource src="{f:uri.action(action: 'show', controller: 'Todolist', arguments: '{todolist: todolist}', pageType: 1234512345, format: 'eventstream')}" />
+        -->
+        </f:comment>
+
+        <hotwired:turboFrame id="edit-todolist-{todolist.uid}">
+            <f:render partial="Todolist/Properties" arguments="{todolist: todolist}" />
+        </hotwired:turboFrame>
+
+        <f:if condition="{todolist.todos}">
+            <f:then>
+
+                <div id="todos">
+                    <f:for each="{todolist.todos}" as="todo">
+                        <hotwired:turboFrame id="edit-todo-{todo.uid}">
+                            <f:render partial="Todo/Properties" arguments="{todolist: todolist, todo: todo}" />
+                        </hotwired:turboFrame>
+                    </f:for>
+                </div>
+
+            </f:then>
+            <f:else>
+
+                <p>...</p>
+
+            </f:else>
+        </f:if>
+
+        <p><hotwired:turboFrame id="new-todo" src="{f:uri.action(action: 'new', controller: 'Todo', arguments: '{todolist: todolist}')}" target="_top" /></p>
+
+        <p><f:link.action action="list">Back to todo lists</f:link.action></p>
+
+    </f:section>
+
+</html>
