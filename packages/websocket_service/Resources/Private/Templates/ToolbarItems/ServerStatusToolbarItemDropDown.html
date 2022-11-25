@@ -1,0 +1,32 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<h3 class="dropdown-headline">
+    Websocket Server Status
+</h3>
+
+<p class="dropdown-text typo3-module-menu-item submodule">
+    This is a short websocket server overview.
+</p>
+
+<f:if condition="{websocketServers}">
+    <hr>
+    <div class="dropdown-table">
+        <f:for each="{websocketServers}" as="websocketServer">
+            <div class="dropdown-table-row">
+                <div class="dropdown-table-column dropdown-table-column-top dropdown-table-icon">
+                    <core:icon identifier="websocket" size="small" state="default" alternativeMarkupIdentifier="inline"/>
+                </div>
+                <div class="dropdown-table-column dropdown-table-column-top dropdown-table-title">
+                    <f:translate key="{websocketServer.title}" default="{websocketServer.title}"/>
+                </div>
+                <div class="dropdown-table-column dropdown-table-column-top dropdown-table-value {f:if(condition: websocketServer.status, then: 'text-{websocketServer.status}')}">
+                    {websocketServer.value}
+                </div>
+            </div>
+        </f:for>
+    </div>
+</f:if>
+
+</html>

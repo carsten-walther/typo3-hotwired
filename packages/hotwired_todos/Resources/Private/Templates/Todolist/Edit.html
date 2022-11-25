@@ -10,7 +10,7 @@
 
     <f:flashMessages />
 
-    <hotwired:turboFrame id="edit-todolist-{todolist.uid}">
+    <hotwired:turboFrame id="todolist-{todolist.uid}">
         <f:render partial="FormErrors"/>
         <f:form action="update" name="todolist" object="{todolist}">
             <f:render partial="Todolist/FormFields" arguments="{todolist: todolist}"/>

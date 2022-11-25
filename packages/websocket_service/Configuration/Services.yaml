@@ -1,0 +1,27 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Walther\WebsocketService\:
+    resource: '../Classes/*'
+
+  Walther\WebsocketService\Backend\ToolbarItems\ServerStatusToolbarItem:
+    public: true
+
+  Walther\WebsocketService\Command\ServerCommand:
+    tags:
+      - name: console.command
+        command: 'websocket:server:run'
+        description: 'Starts the websocket server'
+        schedulable: false
+        hidden: true
+
+  Walther\WebsocketService\Command\ManageCommand:
+    tags:
+      - name: console.command
+        command: 'websocket:server:manage'
+        description: 'Manages the websocket server'
+        schedulable: false
+        hidden: false

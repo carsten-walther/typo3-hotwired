@@ -1,23 +1,20 @@
 <?php
 
-namespace Walther\Hotwired\Service;
+namespace Walther\Hotwired\Server;
 
 use Psr\Log\LoggerInterface;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
+use RuntimeException;
 use SplObjectStorage;
 
 class Connection implements MessageComponentInterface
 {
     private SplObjectStorage $clients;
-    private LoggerInterface $logger;
 
-    public function __construct(LoggerInterface $logger)
+    public function __construct()
     {
-        $this->logger = $logger;
         $this->clients = new SplObjectStorage();
-
-        $this->logger->emergency('Websockets Server has been started successfully');
     }
 
     public function onOpen(ConnectionInterface $conn): void
@@ -32,8 +29,9 @@ class Connection implements MessageComponentInterface
 
     public function onError(ConnectionInterface $conn, \Exception $e): void
     {
-        $this->logger->info("An error has occurred: {$e->getMessage()}");
         $conn->close();
+
+        throw new RuntimeException(sprintf('An error has occurred: %s', $e->getMessage()));
     }
 
     public function onMessage(ConnectionInterface $from, $msg): void

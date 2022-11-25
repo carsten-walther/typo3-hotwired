@@ -10,11 +10,7 @@
 
         <f:flashMessages />
 
-        <f:comment>
-        <!--
-        <hotwired:turboStreamSource src="{f:uri.action(action: 'show', controller: 'Todolist', arguments: '{todolist: todolist}', pageType: 1234512345, format: 'eventstream')}" />
-        -->
-        </f:comment>
+        <hotwired:turboStreamSource src="ws://typo3-hotwired.dev.local:8080/todo" />
 
         <hotwired:turboFrame id="edit-todolist-{todolist.uid}">
             <f:render partial="Todolist/Properties" arguments="{todolist: todolist}" />
