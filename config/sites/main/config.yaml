@@ -1,8 +1,9 @@
 base: 'http://typo3-hotwired.dev.local/'
-errorHandling: {  }
+
+errorHandling: { }
+
 languages:
-  -
-    title: English
+  - title: English
     enabled: true
     languageId: 0
     base: /
@@ -13,5 +14,57 @@ languages:
     hreflang: en-us
     direction: ltr
     flag: us
+
 rootPageId: 1
-routes: {  }
+
+routes: { }
+
+routeEnhancers:
+  HotwiredTodos:
+    type: Extbase
+    extension: HotwiredTodos
+    plugin: Todos
+    routes:
+      - routePath: '/todolists'
+        _controller: 'Todolist::list'
+      - routePath: '/todolist/{todolist}'
+        _controller: 'Todolist::show'
+        _arguments:
+          todolist: todolist
+      - routePath: '/todolist/{todolist}/todo/new'
+        _controller: 'Todo::new'
+        _arguments:
+          todolist: todolist
+          todo: todo
+      - routePath: '/todolist/{todolist}/todo/{todo}/edit'
+        _controller: 'Todo::edit'
+        _arguments:
+          todolist: todolist
+          todo: todo
+      - routePath: '/todolist/{todolist}/todo/{todo}/delete'
+        _controller: 'Todo::delete'
+        _arguments:
+          todolist: todolist
+          todo: todo
+      - routePath: '/todolist/new'
+        _controller: 'Todolist::new'
+      - routePath: '/todolist/{todolist}/edit'
+        _controller: 'Todolist::edit'
+        _arguments:
+          todolist: todolist
+      - routePath: '/todolist/{todolist}/delete'
+        _controller: 'Todolist::delete'
+        _arguments:
+          todolist: todolist
+
+    defaultController: 'Todolist::list'
+
+    aspects:
+      todolist:
+        type: PersistedAliasMapper
+        tableName: tx_hotwiredtodos_domain_model_todolist
+        routeFieldName: uid
+      todo:
+        type: PersistedAliasMapper
+        tableName: tx_hotwiredtodos_domain_model_todo
+        routeFieldName: uid

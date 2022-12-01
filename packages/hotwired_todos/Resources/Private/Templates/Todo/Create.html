@@ -4,7 +4,9 @@
 
 <hotwired:turboStream action="append" target="todos">
     <template>
-        <f:render partial="Todo/Properties" arguments="{todo: todo}"/>
+        <hotwired:turboFrame id="edit-todo-{todo.uid}">
+            <f:render partial="Todo/Properties" arguments="{todolist: todolist, todo: todo}"/>
+        </hotwired:turboFrame>
     </template>
 </hotwired:turboStream>
 

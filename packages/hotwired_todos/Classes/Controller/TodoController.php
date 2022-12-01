@@ -41,10 +41,10 @@ class TodoController extends ActionController
         $this->view->assign('todolist', $todolist);
         $this->view->assign('todo', $todo);
 
-        $context = new \ZMQContext();
-        $socket = $context->getSocket(\ZMQ::SOCKET_PUSH, 'my pusher');
-        $socket->connect("ws://typo3-hotwired.dev.local:8080/todo");
-        $socket->send("Foobar");
+//        $context = new \ZMQContext();
+//        $socket = $context->getSocket(\ZMQ::SOCKET_PUSH, 'my pusher');
+//        $socket->connect("ws://typo3-hotwired.dev.local:8080/todo");
+//        $socket->send("Foobar");
 
         return $this->responseFactory->createResponse()
             ->withAddedHeader('Content-Type', 'text/vnd.turbo-stream.html; charset=utf-8')

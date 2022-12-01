@@ -58,7 +58,7 @@ final class ServerStatusToolbarItem implements ToolbarItemInterface
             ];
         }
 
-        $view = $this->getFluidTemplateObject('ServerStatusToolbarItemDropDown.html');
+        $view = $this->getFluidTemplateObject('ServerStatusDropDown.html');
         $view->assignMultiple([
             'websocketServers' => $websocketServers
         ]);
@@ -72,7 +72,7 @@ final class ServerStatusToolbarItem implements ToolbarItemInterface
 
     public function getIndex(): int
     {
-        return 25;
+        return 70;
     }
 
     protected function getBackendUser(): BackendUserAuthentication
@@ -86,9 +86,7 @@ final class ServerStatusToolbarItem implements ToolbarItemInterface
         $view->setLayoutRootPaths(['EXT:websocket_service/Resources/Private/Layouts']);
         $view->setPartialRootPaths(['EXT:websocket_service/Resources/Private/Partials/ToolbarItems']);
         $view->setTemplateRootPaths(['EXT:websocket_service/Resources/Private/Templates/ToolbarItems']);
-
         $view->setTemplate($filename);
-
         $view->getRequest()->setControllerExtensionName('Backend');
         return $view;
     }
